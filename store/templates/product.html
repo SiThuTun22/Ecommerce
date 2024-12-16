@@ -25,8 +25,7 @@
         ${{product.sale_price}}
         <br/>
         {{product.description}}
-    </div>
-</div>
+
           {% else %}
           ${{ product.price }}
           <br>ID: {{product.id}}
@@ -47,11 +46,13 @@
           <br><br><br>
           <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
           <button type="button" value="{{product.id}}" class="btn btn-secondary" id="add-cart">Add to cart</button>
-        </center>
+        </center> 
+         </div>
+    </div>
         </div>
       </div>
     </div>
-  </div>
+
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <script>
   $(document).on('click',"#add-cart",function(e){
@@ -68,6 +69,7 @@
       success:function(json){
         // console.log(json)
         document.getElementById('cart_quantity').textContent = json.qty
+        location.reload()
       },
       error:function(xhr,errmsg,err){
         
